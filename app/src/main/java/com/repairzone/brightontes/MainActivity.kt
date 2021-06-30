@@ -10,6 +10,7 @@ import androidx.databinding.ObservableArrayList
 import com.repairzone.brightontes.data.model.Movie
 import com.repairzone.brightontes.ui.MainViewModel
 import com.repairzone.brightontes.ui.movie.details.MovieDetailActivity
+import com.repairzone.brightontes.ui.movie.favorit.FavoritActivity
 import com.repairzone.brightontes.ui.widget.ObservableListChangeCallback
 import com.repairzone.brightontes.ui.widget.RecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -52,8 +53,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showFavoritFragment(){
-        val fragment = FavoritFragment.newInstance()
-        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit()
+        val intent = Intent(this, FavoritActivity::class.java)
+        startActivity(intent)
     }
 
     private fun onSearchView(searchView: SearchView){
