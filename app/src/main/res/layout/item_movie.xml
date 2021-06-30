@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.repairzone.brightontes.data.model.Movie" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/normal"
+        android:onClick="@{() -> item.onClick.invoke(item.actionOpen)}"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_banner"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            tools:imgUrl="@{item.poster}"
+            android:background="@color/purple_200"/>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            tools:text="movie name"
+            android:text="@{item.title}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_toEndOf="@id/iv_banner"
+            android:layout_marginStart="@dimen/normal"
+            android:layout_toRightOf="@id/iv_banner"
+            android:layout_marginLeft="@dimen/normal" />
+        <TextView
+            android:id="@+id/tv_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            tools:text="1991"
+            android:text="@{item.year}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:layout_below="@id/tv_title"
+            android:layout_toEndOf="@id/iv_banner"
+            android:layout_marginStart="@dimen/normal"
+            android:layout_toRightOf="@id/iv_banner"
+            android:layout_marginLeft="@dimen/normal" />
+    </RelativeLayout>
+</layout>

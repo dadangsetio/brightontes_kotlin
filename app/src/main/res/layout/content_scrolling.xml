@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.repairzone.brightontes.ui.movie.details.MovieDetailViewModel" />
+    </data>
+    <androidx.core.widget.NestedScrollView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".ui.movie.details.MovieDetailActivity"
+        tools:showIn="@layout/activity_movie_detail">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.movieDetail.title}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+            <ImageView
+                android:id="@+id/iv_calendar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/title"
+                android:src="@drawable/ic_baseline_calendar_today_24"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginLeft="@dimen/large" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.movieDetail.released}"
+                android:layout_toRightOf="@id/iv_calendar"
+                android:layout_alignTop="@id/iv_calendar"
+                android:layout_alignBottom="@id/iv_calendar"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginLeft="@dimen/large" />
+            <ImageView
+                android:id="@+id/iv_time"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_baseline_access_time_24"
+                android:layout_below="@id/iv_calendar"
+                android:layout_marginStart="@dimen/large"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginLeft="@dimen/large" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.movieDetail.runtime}"
+                android:layout_toRightOf="@id/iv_time"
+                android:layout_below="@id/iv_calendar"
+                android:layout_alignTop="@id/iv_time"
+                android:gravity="center_vertical"
+                android:layout_alignBottom="@id/iv_time"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginLeft="@dimen/large" />
+            <ImageView
+                android:id="@+id/iv_star"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/iv_time"
+                android:src="@drawable/ic_baseline_star_rate_24"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginLeft="@dimen/large" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.movieDetail.imdbRating}"
+                android:layout_toRightOf="@id/iv_star"
+                android:layout_alignTop="@id/iv_star"
+                android:layout_alignBottom="@id/iv_star"
+                android:layout_below="@id/iv_time"
+                android:gravity="center_vertical"
+                android:layout_marginStart="@dimen/large"
+                android:layout_marginLeft="@dimen/large"
+                android:layout_toEndOf="@id/iv_star" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_star"
+                android:padding="@dimen/large"
+                android:text="@{viewModel.movieDetail.plot}"
+                android:layout_marginTop="@dimen/large"/>
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
